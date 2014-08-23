@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ballistica</title>
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="vegas/jquery.vegas.min.css">
+	<script src="js\jquery-1.10.2.min.js"></script>
+	<script src="vegas/jquery.vegas.min.js"></script>
+	<script>
+	$(function() {
+		$.vegas( "overlay", {
+			src:"vegas/overlays/15.png"
+		});
+
+		var border = 2 * parseFloat( $( "body" ).css( "borderTopWidth" ) ), 
+		    body$ = $( "body" ),  
+		    minHeight = body$.height();
+
+		$( window ).resize(function( event ) {
+			var currHeight = $( this ).height() - border; 
+			currHeight > minHeight ? body$.height( currHeight ) : 0;
+		});	
+
+		$( window ).trigger( "resize" );
+	});		
+	</script>
+</head>
+<body>
+
+<div id="header"></div>
+<div id="movie">
+	<!--[if IE]>
+		<object id="movie" type="application/x-shockwave-flash" width="800" height="600">
+			<param name="movie"value="media/ballistica.swf">
+		</object>
+	<![endif]-->
+	<!--[if !IE]> <-->
+		<embed name="movie" allowNetworking="all" type="application/x-shockwave-flash" src="media/ballistica.swf" width="800" height="600">
+		</embed>
+	<!-->
+	<![endif]-->
+</div>
+<div id="panel">
+	<div id="left"></div>
+		<span>ABOUT US:</span>
+		<span class="container"><a href="https://www.linkedin.com/profile/view?id=340138341" target="_blank">Dmitriy Ovchar</a></span>
+		<span class="container"><a href="https://www.linkedin.com/profile/view?id=339452052"target="_blank">Ivan Moskalenko</a></span>
+	<div id="right"></div>
+</div>	
+
+</body>
+</html>
